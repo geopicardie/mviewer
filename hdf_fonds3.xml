@@ -28,6 +28,7 @@
             <layer id="lycees" name="Lycée" visible="true" tiled="false"
                 fields="NOM_ETAB,ADRESSE,CODE_POSTA,COMMUNE,EMPRISEA_4" aliases="Nom, Adresse,Code postal,Commune, Lien vers emprisea_4"
                 queryable="true"
+                searchable="true"
                 localsearch="true" localsearch_keys="NOM_ETAB" 
                 infoformat="text/html" featurecount="1"
                 style="eple_surete" type="geojson" url="data/lycees_hdf_pt_surete.geojson" 
