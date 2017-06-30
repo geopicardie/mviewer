@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4326" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "ID_LYCEE": 400, "ID_FONCIER": 15, "UAI": "0624141P", "STATUT": "LPO", "ETIQUETTE": "LPO L. de Vinci", "NOM_ETAB": "Lycée Léonard de Vinci (62)", "INSEE": "62193", "COMMUNE": "CALAIS", "CODE_POSTA": "62228", "ADRESSE": "RUE PASTEUR MARTIN LUTHER KING", "BP": null, "Code_Site": 15.0, "NOM_SITE_C": "Léonard de Vinci (62)", "NOM_SITE_1": "Lycée Polyvalent Léonard de Vinci (62)", "Ville_nom_": "CALAIS - Lycée Polyvalent Léonard de Vinci (62)", "Lyc_metier": "O", "URL": "https:\/\/sig.hautsdefrance.fr\/ext\/mviewerV2-master\/demo\/monlycee.html" }, "geometry": { "type": "Point", "coordinates": [ 1.8932643, 50.95542875 ] } },
 { "type": "Feature", "properties": { "ID_LYCEE": 360, "ID_FONCIER": 18, "UAI": "0620188T", "STATUT": "LP", "ETIQUETTE": "LP du Détroit", "NOM_ETAB": "LP du Détroit", "INSEE": "62193", "COMMUNE": "CALAIS", "CODE_POSTA": "62107", "ADRESSE": "200 RUE GUILLAUME APOLLINAIRE", "BP": "BP 323", "Code_Site": 18.0, "NOM_SITE_C": "LP du Détroit", "NOM_SITE_1": "Lycée Professionnel du Détroit", "Ville_nom_": "CALAIS - Lycée Professionnel du Détroit", "Lyc_metier": "O", "URL": "https:\/\/sig.hautsdefrance.fr\/ext\/mviewerV2-master\/demo\/monlycee.html" }, "geometry": { "type": "Point", "coordinates": [ 1.87395205, 50.93828907 ] } },
