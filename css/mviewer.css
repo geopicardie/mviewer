@@ -131,7 +131,8 @@ a#searchparams {
     padding: 10px;
 }
 
-li.geoportail.list-group-item.disabled{
+li.geoportail.list-group-item.disabled,
+li.fuse.list-group-item.disabled {
 	color:#fff;
 	font-size:13px!important;
 }

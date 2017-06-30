@@ -398,7 +398,8 @@ ul#searchparameters{
 
 /* Search toolbar */
 
-li.geoportail.list-group-item.disabled{
+li.geoportail.list-group-item.disabled ,
+li.fuse.list-group-item.disabled{
 	background-color:#3a5396;
 	border-color:#3a5396;
 	color: white!important;
