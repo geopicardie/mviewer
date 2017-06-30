@@ -26,7 +26,7 @@
             maxzoom="19"
             attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
             visible="false"/>
-        <baselayer
+        <!--baselayer
             type="OSM"
             id="darkmatter"
             label="Dark Matter"
@@ -35,7 +35,7 @@
             url="http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
             maxzoom="19"
             visible="false"
-            attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+            attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" /-->
         <baselayer
             type="OSM"
             id="positron"
