@@ -371,7 +371,7 @@ p.bjqs-caption{
 #right-panel .counter-slide {
   bottom: 125px;
   left: 50%;
-  display: none;
+/*  display: none;*/
 }
 
 #bottom-panel .counter-slide {
