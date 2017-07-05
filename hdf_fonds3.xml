@@ -69,8 +69,33 @@
     <proxy url=""/>
     <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
     <themes mini="true">
-        <theme name="Etablissements"  id="etablissements" collapsed="true" icon="graduation-cap">
+        <theme name="Référentiels géographiques"  id="ref_geo" collapsed="true" icon="globe">
             <layer
+                id="overlay"
+                name="Surcharge pour photographies aériennes"
+                visible="false"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style=""
+                url="http://osm.geopicardie.fr/mapproxy/service"
+                legendurl="img/legend/overlay.png"
+                attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
+                />
+			<layer
+                id="ign_bdtopo_departements_hdf"
+                name="Limites des départements"
+                visible="true"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style=""
+				url="https://www.geopicardie.fr/geoserver/autres_wms_only/ows"
+				attribution="Limites des départements issues de la BD TOPO de l'IGN"
+                />
+        </theme>
+        <theme name="Etablissements"  id="etablissements" collapsed="true" icon="graduation-cap">
+             <layer
                 id="lycees"
                 name="Lycées (points)"
                 visible="true"
@@ -89,9 +114,10 @@
                 url="data/lycees_hdf_pt_surete.geojson"
                 legendurl="img/legend/lycees_emprises.png"
                 attribution="Région Hauts-de-France"
-                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3" 
-                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />
-            <layer
+                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                />
+           <layer
                 id="lycees_emprise"
                 name="Lycées (emprises)"
                 visible="true"
@@ -107,31 +133,7 @@
                 legendurl="img/legend/lycees_points.png"
                 attribution="Région Hauts-de-France"
                 metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
-                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />
-        </theme>
-        <theme name="Référentiels géographiques"  id="ref_geo" collapsed="true" icon="globe">
-			<layer
-                id="ign_bdtopo_departements_hdf"
-                name="Limites des départements"
-                visible="true"
-                tiled="true"
-                searchable="false"
-                queryable="false"
-				style=""
-				url="https://www.geopicardie.fr/geoserver/autres_wms_only/ows"
-				attribution="Limites des départements issues de la BD TOPO de l'IGN"
-                />
-            <layer
-                id="overlay"
-                name="Surcharge pour photographies aériennes"
-                visible="false"
-                tiled="true"
-                searchable="false"
-                queryable="false"
-				style=""
-                url="http://osm.geopicardie.fr/mapproxy/service"
-                legendurl="img/legend/overlay.png"
-                attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
                 />
         </theme>
     </themes>
