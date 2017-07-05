@@ -6,52 +6,75 @@
         <baselayer
             type="OSM"
             id="esriworldimagery"
-            label="Esri world imagery"
+            label="Photographies aériennes - ESRI"
             title="esriworldimagery"
-            thumbgallery="img/basemap/ortho.jpg"
+            thumbgallery="img/basemap/ortho_esri.jpg"
             url="http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             visible="true"
-             maxzoom="19"
-           attribution="Esri world imagery"/>
+            maxzoom="19"
+            attribution="Esri world imagery"/>
+        <baselayer
+            type="WMS"
+            id="ortho-ign"
+            label="Photographies aériennes - IGN"
+            title="Ortho HR IGN"
+            thumbgallery="img/basemap/ortho_ign.jpg"
+            url="http://wxs.ign.fr/4d5rqk1fpxg4qlscbv2thkhm/geoportail/r/wms"
+			layers="ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO"
+            format="image/jpeg"
+			tiled="true"
+            maxzoom="19"
+            visible="false"
+            attribution="Photographies aériennes IGN" />
+        <!-- for Neogeo local tests baselayer
+            type="WMS"
+            id="ortho-ign"
+            label="Photographies aériennes"
+            title="Ortho IGN"
+            thumbgallery="img/basemap/ortho_ign.jpg"
+            url="https://wxs.ign.fr/jhr3a8px51ywnikxhdx0msy5/geoportail/r/wms"
+			layers="ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO"
+            format="image/jpeg"
+			tiled="true"
+            maxzoom="19"
+            visible="false"
+            attribution="Photographies aériennes IGN" /-->
         <baselayer
             type="WMS"
             id="osm-geopic-bright-wms"
-            label="OSM - GéoPicardie bright WMS"
+            label="OSM - GéoPicardie"
             title="OpenStreetMap - fond GéoPicardie contrasté"
-            thumbgallery="img/basemap/osm.geopicardie.bright.png"
+            thumbgallery="img/basemap/osm.geopicardie.bright.jpg"
             url="http://osm.geopicardie.fr/mapproxy/service"
             layers="bright"
             format="image/png"
-            tiled="false"
+            tiled="true"
             maxzoom="19"
             attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
             visible="false"/>
-        <!--baselayer
-            type="OSM"
-            id="darkmatter"
-            label="Dark Matter"
-            title="CartoDb"
-            thumbgallery="img/basemap/darkmatter.png"
-            url="http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
-            maxzoom="19"
-            visible="false"
-            attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" /-->
         <baselayer
-            type="OSM"
-            id="positron"
-            label="Positron"
-            title="CartoDb"
-            thumbgallery="img/basemap/positron.png"
-            url="http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+            type="WMS"
+            id="scan-express-ign"
+            label="Plan topographique - IGN"
+            title="Scan Express IGN"
+            thumbgallery="img/basemap/scan_express_ign.jpg"
+            url="http://wxs.ign.fr/4d5rqk1fpxg4qlscbv2thkhm/geoportail/r/wms"
+			layers="GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD"
+            format="image/jpeg"
+			tiled="true"
             maxzoom="19"
             visible="false"
-            attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+            attribution="Scan Express Standard IGN" />
     </baselayers>
     <proxy url=""/>
-    <olscompletion url="http://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>   
+    <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
     <themes mini="true">
         <theme name="Etablissements"  id="etablissements" collapsed="true" icon="graduation-cap">
-            <layer id="lycees" name="Lycée" visible="true" tiled="false"
+            <layer
+                id="lycees"
+                name="Lycées (points)"
+                visible="true"
+                tiled="false"
                 fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
                 aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
                 queryable="true"
@@ -64,10 +87,15 @@
                 style="eple_surete"
                 type="geojson"
                 url="data/lycees_hdf_pt_surete.geojson"
-                attribution="Région Hauts-de-France" 
+                legendurl="img/legend/lycees_emprises.png"
+                attribution="Région Hauts-de-France"
                 metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3" 
-                metadata-csw="http://www.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />     
-            <layer id="lycees_emprise" name="Emprise lycée" visible="true" tiled="false"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />
+            <layer
+                id="lycees_emprise"
+                name="Lycées (emprises)"
+                visible="true"
+                tiled="false"
                 fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
                 aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
                 queryable="true"
@@ -76,9 +104,35 @@
                 style="eple_surete_emprise"
                 type="geojson"
                 url="data/lycees_hdf_emprise_surete.geojson"
-                attribution="Région Hauts-de-France" 
-                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3" 
-                metadata-csw="http://www.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />
+                legendurl="img/legend/lycees_points.png"
+                attribution="Région Hauts-de-France"
+                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3" />
+        </theme>
+        <theme name="Référentiels géographiques"  id="ref_geo" collapsed="true" icon="globe">
+			<layer
+                id="ign_bdtopo_departements_hdf"
+                name="Limites des départements"
+                visible="true"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style=""
+				url="https://www.geopicardie.fr/geoserver/autres_wms_only/ows"
+				attribution="Limites des départements issues de la BD TOPO de l'IGN"
+                />
+            <layer
+                id="overlay"
+                name="Surcharge pour photographies aériennes"
+                visible="false"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style=""
+                url="http://osm.geopicardie.fr/mapproxy/service"
+                legendurl="img/legend/overlay.png"
+                attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
+                />
         </theme>
     </themes>
 </config>
