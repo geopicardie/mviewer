@@ -52,7 +52,7 @@
             maxzoom="19"
             attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
             visible="false"/>
-        <baselayer
+        <!--baselayer
             type="WMS"
             id="scan-express-ign"
             label="Plan topographique - IGN"
@@ -64,7 +64,8 @@
 			tiled="true"
             maxzoom="19"
             visible="false"
-            attribution="Scan Express Standard IGN" />
+            attribution="Scan Express Standard IGN"
+            /-->
     </baselayers>
     <proxy url=""/>
     <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
@@ -89,13 +90,32 @@
                 tiled="true"
                 searchable="false"
                 queryable="false"
-				style=""
+				style="polygone_bord_blanc_etiquette_nom"
 				url="https://www.geopicardie.fr/geoserver/autres_wms_only/ows"
+                legendurl="img/legend/departements.png"
 				attribution="Limites des départements issues de la BD TOPO de l'IGN"
                 />
         </theme>
         <theme name="Etablissements"  id="etablissements" collapsed="true" icon="graduation-cap">
-             <layer
+            <layer
+                id="lycees_emprise"
+                name="Lycées (emprises)"
+                visible="true"
+                tiled="false"
+                fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
+                aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
+                queryable="true"
+                infoformat="text/html"
+                featurecount="1"
+                style="eple_surete_emprise"
+                type="geojson"
+                url="data/lycees_hdf_emprise_surete.geojson"
+                legendurl="img/legend/lycees_emprises.png"
+                attribution="Région Hauts-de-France"
+                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                />
+            <layer
                 id="lycees"
                 name="Lycées (points)"
                 visible="true"
@@ -112,24 +132,6 @@
                 style="eple_surete"
                 type="geojson"
                 url="data/lycees_hdf_pt_surete.geojson"
-                legendurl="img/legend/lycees_emprises.png"
-                attribution="Région Hauts-de-France"
-                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
-                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
-                />
-           <layer
-                id="lycees_emprise"
-                name="Lycées (emprises)"
-                visible="true"
-                tiled="false"
-                fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
-                aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
-                queryable="true"
-                infoformat="text/html"
-                featurecount="1"
-                style="eple_surete_emprise"
-                type="geojson"
-                url="data/lycees_hdf_emprise_surete.geojson"
                 legendurl="img/legend/lycees_points.png"
                 attribution="Région Hauts-de-France"
                 metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
