@@ -116,7 +116,7 @@
                 metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
                 />
             <layer
-                id="lycees"
+                id="lycees_hdf_pt_surete"
                 name="Lycées (points)"
                 visible="true"
                 tiled="false"
@@ -126,11 +126,13 @@
                 searchable="true"
                 localsearch="true"
                 localsearch_keys="NOM_ETAB,ETIQUETTE,NOM_SITE_C,Ville_nom_"
-                localsearch_result_key="ETIQUETTE"
+                localsearch_result_key="$1 ($2)#ETIQUETTE|COMMUNE"
                 infoformat="text/html"
                 featurecount="1"
                 style="eple_surete"
                 type="geojson"
+                tooltip="true"
+                tooltipenabled="true"
                 url="data/lycees_hdf_pt_surete.geojson"
                 legendurl="img/legend/lycees_points.png"
                 attribution="Région Hauts-de-France"
