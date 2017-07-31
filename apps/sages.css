@@ -1,0 +1,12 @@
+@import url('../lib/simple-slidebar/simple_slidebar.css');
+@import url('../css/themes/chambray.css');
+
+
+/* Make the sidebar invisible when collapsed */
+#wrapper.toggled-2 #sidebar-wrapper {
+    width: 0px;
+}
+
+#wrapper.toggled-2 #page-content-wrapper {
+    margin-left: -250px;
+}

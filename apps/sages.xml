@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <application title="Test Sureté dans les EPLE" logo="logoHDF.png" help="demo/demo_fonds_help.html" showhelp="false" exportpng="true" style="apps/sages.css"/>
+    <mapoptions maxzoom="19" projection="EPSG:3857" center="270000,6450000" zoom="8" projextent="145518,6726671,372058,6868691" />
+    <baselayers style="gallery">
+        <baselayer
+            type="OSM"
+            id="esriworldimagery"
+            label="Photographies aériennes - ESRI"
+            title="esriworldimagery"
+            thumbgallery="img/basemap/ortho_esri.jpg"
+            url="http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            visible="true"
+            maxzoom="19"
+            attribution="Esri world imagery"/>
+        <baselayer
+            type="WMS"
+            id="ortho-ign"
+            label="Photographies aériennes - IGN"
+            title="Ortho HR IGN"
+            thumbgallery="img/basemap/ortho_ign.jpg"
+            url="http://wxs.ign.fr/4d5rqk1fpxg4qlscbv2thkhm/geoportail/r/wms"
+			layers="ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO"
+            format="image/jpeg"
+			tiled="true"
+            maxzoom="19"
+            visible="false"
+            attribution="Photographies aériennes IGN" />
+        <!-- for Neogeo local tests baselayer
+            type="WMS"
+            id="ortho-ign"
+            label="Photographies aériennes"
+            title="Ortho IGN"
+            thumbgallery="img/basemap/ortho_ign.jpg"
+            url="https://wxs.ign.fr/jhr3a8px51ywnikxhdx0msy5/geoportail/r/wms"
+			layers="ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO"
+            format="image/jpeg"
+			tiled="true"
+            maxzoom="19"
+            visible="false"
+            attribution="Photographies aériennes IGN" /-->
+        <baselayer
+            type="WMS"
+            id="osm-geopic-bright-wms"
+            label="OSM - GéoPicardie"
+            title="OpenStreetMap - fond GéoPicardie contrasté"
+            thumbgallery="img/basemap/osm.geopicardie.bright.jpg"
+            url="http://osm.geopicardie.fr/mapproxy/service"
+            layers="bright"
+            format="image/png"
+            tiled="true"
+            maxzoom="19"
+            attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
+            visible="false"/>
+        <!--baselayer
+            type="WMS"
+            id="scan-express-ign"
+            label="Plan topographique - IGN"
+            title="Scan Express IGN"
+            thumbgallery="img/basemap/scan_express_ign.jpg"
+            url="http://wxs.ign.fr/4d5rqk1fpxg4qlscbv2thkhm/geoportail/r/wms"
+			layers="GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD"
+            format="image/jpeg"
+			tiled="true"
+            maxzoom="19"
+            visible="false"
+            attribution="Scan Express Standard IGN"
+            /-->
+    </baselayers>
+    <proxy url=""/>
+    <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
+    <themes mini="true">
+        <theme name="Référentiels géographiques"  id="ref_geo" collapsed="true" icon="globe">
+            <layer
+                id="overlay"
+                name="Surcharge pour photographies aériennes"
+                visible="false"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style=""
+                url="http://osm.geopicardie.fr/mapproxy/service"
+                legendurl="img/legend/overlay.png"
+                attribution="Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'&gt;OpenStreetMap &lt;/a&gt;,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a&gt;"
+                />
+			<layer
+                id="ign_bdtopo_departements_hdf"
+                name="Limites des départements"
+                visible="true"
+                tiled="true"
+                searchable="false"
+                queryable="false"
+				style="polygone_bord_blanc_etiquette_nom"
+				url="https://www.geopicardie.fr/geoserver/autres_wms_only/ows"
+                legendurl="img/legend/departements.png"
+				attribution="Limites des départements issues de la BD TOPO de l'IGN"
+                />
+        </theme>
+        <theme name="Etablissements"  id="etablissements" collapsed="true" icon="graduation-cap">
+            <layer
+                id="lycees_emprise"
+                name="Lycées (emprises)"
+                visible="true"
+                tiled="false"
+                fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
+                aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
+                queryable="true"
+                infoformat="text/html"
+                featurecount="1"
+                style="eple_surete_emprise"
+                type="geojson"
+                url="data/lycees_hdf_emprise_surete.geojson"
+                legendurl="img/legend/lycees_emprises.png"
+                attribution="Région Hauts-de-France"
+                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                />
+            <layer
+                id="lycees_hdf_pt_surete"
+                name="Lycées (points)"
+                visible="true"
+                tiled="false"
+                fields="NOM_ETAB,UAI,STATUT,Lyc_metier,NOM_SITE_1,Code_Site,ADRESSE,CODE_POSTA,COMMUNE,URL"
+                aliases="Nom,Code UAI,Statut,Lycée métier,Nom site,Code site,Adresse,Code postal,Commune,Lien vers documents"
+                queryable="true"
+                searchable="true"
+                localsearch="true"
+                localsearch_keys="NOM_ETAB,ETIQUETTE,NOM_SITE_C,Ville_nom_"
+                localsearch_result_key="$1 ($2)#ETIQUETTE|COMMUNE"
+                infoformat="text/html"
+                featurecount="1"
+                style="eple_surete"
+                type="geojson"
+                tooltip="true"
+                tooltipenabled="true"
+                url="data/lycees_hdf_pt_surete.geojson"
+                legendurl="img/legend/lycees_points.png"
+                attribution="Région Hauts-de-France"
+                metadata="http://www.geopicardie.fr/geonetwork/apps/georchestra/?uuid=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                metadata-csw="https://dev.geopicardie.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b13e50c5-518d-40f4-abd6-e33be37b20c3"
+                />
+        </theme>
+    </themes>
+</config>
