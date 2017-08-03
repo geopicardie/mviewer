@@ -68,7 +68,9 @@
             /-->
     </baselayers>
     <proxy url=""/>
-    <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
+    <!--olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/-->
+    <!-- for Neogeo local tests olscompletion url="http://gpp3-wxs.ign.fr/jhr3a8px51ywnikxhdx0msy5/ols/apis/completion" type="geoportail" attribution="La recherche d'adresse est un service proposé par l'API Géoportail ©"/-->
+    <olscompletion url="http://gpp3-wxs.ign.fr/4d5rqk1fpxg4qlscbv2thkhm/ols/apis/completion" type="geoportail" attribution="La recherche d'adresse est un service proposé par l'API Géoportail ©"/>
     <themes mini="true">
         <theme name="Référentiels géographiques"  id="ref_geo" collapsed="true" icon="globe">
             <layer
